@@ -1,0 +1,16 @@
+name: COMP3104 CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display message
+        run: echo "COMP3104 GitHub Actions workflow ran successfully"
+
