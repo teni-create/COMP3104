@@ -7,10 +7,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  demo:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Display message
-        run: echo "COMP3104 GitHub Actions workflow ran successfully"
+      - name: Check out repository
+        uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run test script
+        run: npm test
